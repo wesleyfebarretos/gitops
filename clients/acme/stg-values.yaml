@@ -8,4 +8,4 @@ replicaCount: 2
 image:
   repository: golang-api
   tag: latest
-  pullPolicy: always
+  pullPolicy: Never
