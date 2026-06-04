@@ -1,0 +1,9 @@
+namespace: acme-dev
+
+nameOverride: acme-dev
+fullnameOverride: acme-dev
+replicaCount: 1
+image:
+  repository: acme-dev
+  tag: latest
+  pullPolicy: always

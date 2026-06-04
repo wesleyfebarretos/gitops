@@ -1,0 +1,16 @@
+namespace: acme-prod
+
+nameOverride: acme-prod
+fullnameOverride: acme-prod
+
+image:
+  repository: acme-prod
+  tag: 568a59b 
+  pullPolicy: IfNotPresent
+
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 65
+  targetMemoryUtilizationPercentage: 60
