@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
 
-  source:
+  sources:
     - repoURL: https://github.com/wesleyfebarretos/gitops.git
       targetRevision: main
       path: platform/argocd
