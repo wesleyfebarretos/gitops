@@ -1,24 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd
+  name: platform-envoy-gateway
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   project: default
 
   source:
     repoURL: https://github.com/wesleyfebarretos/gitops.git
     targetRevision: main
-    path: bootstrap/argocd
-
-    helm:
-      releaseName: argocd
-      valueFiles:
-        - values.yaml
+    path: platform/envoy-gateway
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: envoy-gateway-system
 
   syncPolicy:
     automated:

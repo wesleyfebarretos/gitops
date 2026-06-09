@@ -1,0 +1,43 @@
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: ReferenceGrant
+metadata:
+  name: allow-platform-routes
+  namespace: envoy-gateway-system
+spec:
+  from:
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      namespace: argocd
+    - group: gateway.networking.k8s.io
+      kind: GRPCRoute
+      namespace: argocd
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      namespace: acme-dev
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      namespace: acme-stg
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      namespace: acme-prod
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      namespace: acme2-dev
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      namespace: acme2-stg
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      namespace: acme2-prod
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      namespace: acme3-dev
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      namespace: acme3-stg
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      namespace: acme3-prod
+  to:
+    - group: gateway.networking.k8s.io
+      kind: Gateway

@@ -6,4 +6,4 @@ replicaCount: 1
 image:
   repository: acme3-dev
   tag: latest
-  pullPolicy: always
+  pullPolicy: Never

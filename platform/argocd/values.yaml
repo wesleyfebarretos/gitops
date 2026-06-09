@@ -1,6 +1,6 @@
 argo-cd:
   global:
-    domain: argocd.yourdomain.com   # change to your domain
+    domain: argocd.local   # change to your domain
 
   configs:
     # configs.params keys must NOT use dot-notation in chart >= 7.x
@@ -28,16 +28,35 @@ argo-cd:
   server:
     replicas: 1
 
-    # Run without TLS — recommended when ingress handles TLS termination
+    # TLS terminates at the platform Gateway; Argo CD serves plain HTTP internally.
     extraArgs:
       - --insecure
 
     ingress:
+      enabled: false
+
+    httproute:
       enabled: true
-      ingressClassName: nginx
-      annotations:
-        nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-        nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+      parentRefs:
+        - name: platform
+          namespace: envoy-gateway-system
+          sectionName: https
+      hostnames:
+        - argocd.local
+      rules:
+        - matches:
+            - path:
+                type: PathPrefix
+                value: /
+
+    grpcroute:
+      enabled: true
+      parentRefs:
+        - name: platform
+          namespace: envoy-gateway-system
+          sectionName: https
+      hostnames:
+        - argocd.local
 
   applicationSet:
     replicas: 1

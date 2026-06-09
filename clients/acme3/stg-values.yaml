@@ -8,4 +8,4 @@ replicaCount: 2
 image:
   repository: acme3-stg
   tag: latest
-  pullPolicy: always
+  pullPolicy: Never

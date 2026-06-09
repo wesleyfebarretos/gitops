@@ -41,3 +41,10 @@ reposerver/repository/testdata/**/.argocd-helm-dep-up
 
 # Helm packages
 *.tgz
+
+# Ignore all kustomize charts
+**/charts/
+
+# But not ignore charts inside helm
+!**/helm/charts/
+!**/helm/charts/**
