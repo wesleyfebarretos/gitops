@@ -14,6 +14,7 @@ else
     kind create cluster --name "${CLUSTER_NAME}" --config ../platform/kind/kind-config.yaml
 fi
 
+kustomize build --enable-helm ../platform/envoy-gateway | kubectl apply --server-side -f -
 kustomize build --enable-helm ../platform/argocd | kubectl apply --server-side -f -
 
 echo "==> Waiting for ArgoCD server to be ready..."
