@@ -10,7 +10,7 @@ image:
 
 autoscaling:
   enabled: true
-  minReplicas: 20
-  maxReplicas: 20
+  minReplicas: 1
+  maxReplicas: 10
   targetCPUUtilizationPercentage: 65
   targetMemoryUtilizationPercentage: 60
