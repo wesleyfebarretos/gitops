@@ -1,5 +1,5 @@
 global:
-  domain: argocd.local   # change to your domain
+  domain: argocd.internal   # change to your domain
 
 configs:
   # configs.params keys must NOT use dot-notation in chart >= 7.x
@@ -46,7 +46,7 @@ server:
         namespace: envoy-gateway-system
         sectionName: https
     hostnames:
-      - argocd.local
+      - argocd.internal
     rules:
       - matches:
           - path:
@@ -60,7 +60,7 @@ server:
   #       namespace: envoy-gateway-system
   #       sectionName: https
   #   hostnames:
-  #     - grpc.argocd.local
+  #     - grpc.argocd.internal
 
 applicationSet:
   replicas: 1
