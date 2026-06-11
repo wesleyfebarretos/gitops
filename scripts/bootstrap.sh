@@ -6,6 +6,14 @@ cd "$(dirname "$0")"
 
 mise install
 
+CLUSTER_NAME="${KIND_CLUSTER_NAME:-kind}"
+
+if kind get clusters 2>/dev/null | grep -qx "${CLUSTER_NAME}"; then
+  echo "Kind cluster '${CLUSTER_NAME}' already exists. Skipping creation."
+else
+    kind create cluster --name "${CLUSTER_NAME}" --config ../platform/kind/kind-config.yaml
+fi
+
 kubectl apply --server-side -k ../platform/crds
 kustomize build --enable-helm ../platform/argocd | kubectl apply --server-side -f -
 

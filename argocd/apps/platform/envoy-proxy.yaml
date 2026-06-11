@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: platform-gateway
+  name: platform-envoy-proxy
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "3"
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   project: default
 
   source:
     repoURL: https://github.com/wesleyfebarretos/gitops.git
     targetRevision: main
-    path: platform/gateway
+    path: platform/envoy-proxy
 
   destination:
     server: https://kubernetes.default.svc
