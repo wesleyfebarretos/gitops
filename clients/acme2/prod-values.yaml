@@ -4,7 +4,7 @@ nameOverride: acme2-prod
 fullnameOverride: acme2-prod
 
 image:
-  repository: acme2-prod
+  repository: golang-api
   tag: 568a59b 
   pullPolicy: IfNotPresent
 

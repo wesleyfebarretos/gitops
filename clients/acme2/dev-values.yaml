@@ -4,6 +4,6 @@ nameOverride: acme2-dev
 fullnameOverride: acme2-dev
 replicaCount: 1
 image:
-  repository: acme2-dev
+  repository: golang-api
   tag: latest
   pullPolicy: Never
