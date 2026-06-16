@@ -13,6 +13,15 @@ configs:
     admin.enabled: "false"
 
     ## OIDC settings
+    dex.config: |
+      connectors:
+        - type: github
+          id: github
+          name: GitHub
+          config:
+            clientID: Ov23cto1ueChXRpxULeK
+            clientSecret: $dex.github.clientSecret
+
     
     exec.enabled: "true"
 
@@ -25,7 +34,7 @@ configs:
 
   rbac:
     create: true
-    policy.default: role:readonly
+    policy.default: ''
     policy.csv: |
       p, role:admin, applications, *, */*, allow
       p, role:admin, clusters,     *, *, allow
@@ -33,8 +42,7 @@ configs:
       p, role:admin, projects,     *, *, allow
       p, role:admin, exec, *, */*, allow
 
-      g, admin, role:admin
-      g, argocd-admins, role:admin
+      g, wesleyfebarretos@gmail.com, role:admin
 
 server:
   replicas: 1
