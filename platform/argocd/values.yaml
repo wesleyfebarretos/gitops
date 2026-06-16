@@ -8,7 +8,7 @@ configs:
     create: true   # required — tells the chart to create the ConfigMap
 
   cm:
-    admin.enabled: false
+    admin.enabled: "false"
 
     ## OIDC settings
 
