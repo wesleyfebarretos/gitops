@@ -24,11 +24,11 @@ spec:
       namespace: kube-system
 
   clusterResourceWhitelist:
-    - group: ""
+    - group: "*"
       kind: "*"
 
   namespaceResourceWhitelist:
-    - group: ""
+    - group: "*"
       kind: "*"
 
   orphanedResources:
@@ -40,4 +40,4 @@ spec:
       policies:
         - p, proj:platform:admin, applications, *, platform/*, allow
       groups:
-        - wesleyfebarretos@gmail.com 
+        - wesleyfebarretos@gmail.com
