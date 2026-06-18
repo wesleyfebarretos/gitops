@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: platform
+  namespace: argocd
+spec:
+  description: Platform team project with restricted repo and namespaces
+
+  sourceRepos:
+    - https://github.com/wesleyfebarretos/gitops.git
+
+  sourceNamespaces:
+    - argocd
+    - platform
+
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: argocd
+    - server: https://kubernetes.default.svc
+      namespace: cert-manager
+    - server: https://kubernetes.default.svc
+      namespace: envoy-gateway-system
+    - server: https://kubernetes.default.svc
+      namespace: kube-system
+
+  clusterResourceWhitelist:
+    - group: ""
+      kind: "*"
+
+  namespaceResourceWhitelist:
+    - group: ""
+      kind: "*"
+
+  orphanedResources:
+    warn: true
+
+  roles:
+    - name: admin
+      description: Full access within platform project
+      policies:
+        - p, proj:platform:admin, applications, *, platform/*, allow
+      groups:
+        - admin

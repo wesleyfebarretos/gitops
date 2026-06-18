@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: platform-metrics-server
+  name: metrics-server
   namespace: argocd
 spec:
-  project: default
+  project: platform
 
   source:
     repoURL: https://github.com/wesleyfebarretos/gitops.git
