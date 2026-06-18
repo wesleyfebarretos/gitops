@@ -40,4 +40,4 @@ spec:
       policies:
         - p, proj:platform:admin, applications, *, platform/*, allow
       groups:
-        - wesleyfebarretos@gmail.com, 
+        - wesleyfebarretos@gmail.com 
