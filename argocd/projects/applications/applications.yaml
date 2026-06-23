@@ -28,11 +28,12 @@ spec:
     - group: ''
       kind: "Namespace"
   namespaceResourceWhitelist:
-    # core/v1
+    # argoproj.io/v1alpha1
     - group: 'argoproj.io'
       kind: Application
     - group: 'argoproj.io'
       kind: ApplicationSet
+    # core/v1
     - group: ''
       kind: Service
     - group: ''
