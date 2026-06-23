@@ -7,7 +7,9 @@ spec:
   description: Platform team project with restricted repo and namespaces
   sourceRepos:
     - https://github.com/wesleyfebarretos/argocd-control-plane.git
-  sourceNamespaces: [argocd, platform]
+  sourceNamespaces:
+    - argocd
+    - platform
   destinations:
     - server: https://kubernetes.default.svc
       namespace: argocd
