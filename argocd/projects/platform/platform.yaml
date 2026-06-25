@@ -30,5 +30,7 @@ spec:
   roles:
     - name: admin
       description: Full access within platform project
-      policies: ['p, proj:platform:admin, applications, *, platform/*, allow']
-      groups: [wesleyfebarretos@gmail.com]
+      policies:
+        - 'p, proj:platform:admin, applications, *, platform/*, allow'
+      groups:
+        - wesleyfebarretos@gmail.com

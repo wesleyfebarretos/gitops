@@ -16,6 +16,7 @@ fi
 
 kustomize build --enable-helm ../platform/envoy-gateway | kubectl apply --server-side -f -
 kustomize build --enable-helm ../platform/argocd | kubectl apply --server-side -f -
+kubectl apply --server-side -f ../argocd/projects/platform
 
 echo "==> Waiting for ArgoCD server to be ready..."
 kubectl rollout status deployment/argocd-server -n argocd --timeout=3m

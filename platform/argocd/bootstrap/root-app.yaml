@@ -2,11 +2,11 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: root-app
-  namespace: argocd
+  namespace: platform
   annotations:
     argocd.argoproj.io/sync-options: Prune=false
 spec:
-  project: default
+  project: platform
   source:
     repoURL: https://github.com/wesleyfebarretos/argocd-control-plane.git
     targetRevision: main
